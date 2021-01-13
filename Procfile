@@ -1,0 +1,1 @@
+web: gunicorn stx_next_recruitment_task.wsgi --log-file -
