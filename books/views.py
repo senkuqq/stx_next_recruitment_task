@@ -34,6 +34,7 @@ class DbView(views.APIView):
         if serializer.is_valid():
             books = client.get_books_by_search_param(search_param=request.data.get('q'))
             if books.status_code == 200 and books.json().get('totalItems') > 0:
+                id_list = []
                 for book in books.json().get('items'):
                     volume_info = book.get('volumeInfo')
                     image_links = volume_info.get('imageLinks')
@@ -59,7 +60,10 @@ class DbView(views.APIView):
                         book_db.categories.clear()
                         for category_api in categories_api:
                             book_db.categories.get_or_create(name=category_api)
-                return Response(status=status.HTTP_201_CREATED)
+                    id_list.append(book_db.id)
+                queryset = Book.objects.filter(id__in=id_list)
+                bs = BookSerializer(instance=queryset, many=True)
+                return Response(data=bs.data, status=status.HTTP_201_CREATED)
             else:
                 raise Http404
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

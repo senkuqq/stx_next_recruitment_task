@@ -1,6 +1,6 @@
 # Stx Next recruitment task
 
-Rest api for fetching and storing data about books from googleapis.com.
+Rest api for fetching and storing data about books from GoogleApi.
 
 Application is able to retrieve data from googleapi and then store it in database, 
 that includes updating existing ones. To do that simply ```POST /api/v1/db/``` with body ```{"q":"your-query"}```
@@ -36,9 +36,6 @@ Create superuser.
 ```sh
 $ docker exec -it app python manage.py createsuperuser
 ```
-Endpoints api/v1/token/ and api/v1/token/refresh/ are for obtaining and refreshing tokens.
-
-Endpoints api/v1/geolocations/ is for creating and listing geolocations.
 
 # Online
 You can check online version on [heroku](http://stx-next-recruitment-task.herokuapp.com/api/v1/).
