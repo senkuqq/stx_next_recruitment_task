@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "1dd71b87-f776-4ea3-bb5e-1b40e3f90a2d",
+		"name": "stx-next-recruitment-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://stx-next-recruitment-task.herokuapp.com/api/v1/books/?author=&published_date=",
+					"protocol": "http",
+					"host": [
+						"stx-next-recruitment-task",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"books",
+						""
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": ""
+						},
+						{
+							"key": "published_date",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import books from googleapi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"q\": \"par\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://stx-next-recruitment-task.herokuapp.com/api/v1/db/",
+					"protocol": "https",
+					"host": [
+						"stx-next-recruitment-task",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"db",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
